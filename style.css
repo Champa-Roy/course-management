@@ -23,20 +23,16 @@ img {
     position: relative;
     width: 100%;
     min-height: 100vh;
-    /* Full screen height to match the grand look */
     display: flex;
     align-items: center;
     padding: 100px 0;
-    /* Space for top/bottom shapes */
     overflow: hidden;
     z-index: 1;
 }
 
-/* Top & Bottom Shapes (Safe images) */
 .shape-top {
     position: absolute;
     top: -1px;
-    /* Avoid sub-pixel gaps */
     left: 0;
     width: 100%;
     z-index: 0;
@@ -55,10 +51,8 @@ img {
     left: 0;
     width: 100%;
     z-index: 15;
-    /* Higher than boy's container context for valid overlap */
     line-height: 0;
     pointer-events: none;
-    /* Let clicks pass through to potential content below if any */
 }
 
 .shape-bottom img {
@@ -74,7 +68,6 @@ img {
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
-    /* Removed z-index to allow interleaving, or managed children specifically */
     z-index: 10;
 }
 
@@ -150,18 +143,12 @@ img {
     width: 35px;
     height: 35px;
     background-color: #fff;
-    /* or maybe slight grey to separate? Image shows separate circle. */
     border-radius: 50%;
     margin-left: 15px;
     font-size: 1.2rem;
     border: 1px solid #eee;
-    /* Subtle separation if inside, but let's try to mimic external circle visually */
-    /* Implementation choice: Let's make it look like the button is the text and the arrow is attached */
 }
 
-/* Adjusting button to look like: ( Apply Today )  ( > ) */
-/* Actually, let's look closer. It might be: [ Apply Today  (>) ] */
-/* I'll stick to a clean pill with arrow inside for safety, standard UI. */
 
 /* Right Illustration */
 .banner-illustration {
@@ -171,10 +158,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    /* Align bottom to sync with clouds */
     z-index: 5;
-    /* Lower than shape-bottom (15) */
-    /* Push him down to hide the cut-off bottom behind the clouds */
     margin-bottom: -280px;
 }
 
@@ -194,9 +178,7 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -45%);
-    /* Slight offset to match boy's position */
     margin-bottom: 20px;
-    /* Adjust circle relative to boy since we moved the container */
 }
 
 
@@ -205,13 +187,9 @@ img {
     position: absolute;
     z-index: 5;
     pointer-events: none;
-    /* Let clicks pass through */
     animation: float 4s ease-in-out infinite;
 }
 
-/* Positioning based on visual design */
-
-/* Parachute / Hot Air Balloon (Cyan) - Top Left */
 .shape-perashut {
     top: 12%;
     left: 8%;
@@ -223,7 +201,6 @@ img {
 .shape-book {
     top: 18%;
     left: 55%;
-    /* Start slightly overlapping the right side */
     width: 60px;
     transform: rotate(-15deg);
     animation: float-rotate 5s ease-in-out infinite;
@@ -404,17 +381,13 @@ img {
     line-height: 1.3;
 }
 
-/* Cards Row */
 .activities-row {
     margin: 0 -15px;
     align-items: stretch;
-    /* Make cards same height */
     position: relative;
     z-index: 10;
-    /* Above decorative background stuff if any */
 }
 
-/* Card Wrapper for spacing */
 .activity-card-wrapper {
     flex: 0 0 25%;
     max-width: 25%;
@@ -426,11 +399,9 @@ img {
 .activity-card {
     position: relative;
     padding: 60px 30px;
-    /* Space for top/bottom waves */
     height: 100%;
     color: #fff;
     transition: transform 0.3s ease;
-    /* Zigzag effect relies on the images, no border radius usually if using full zigzag borders */
 }
 
 .activity-card:hover {
@@ -444,7 +415,6 @@ img {
     width: calc(100% + 2px);
     line-height: 0;
     z-index: 2;
-    /* Above content background */
 }
 
 .card-shape-top {
@@ -454,7 +424,6 @@ img {
 .card-shape-bottom {
     bottom: 0;
     transform: rotate(180deg);
-    /* Flip for bottom edge if it's a one-sided sawtooth */
 }
 
 .card-shape-top img,
@@ -480,26 +449,18 @@ img {
     width: 80px;
     height: 80px;
     background-color: rgba(255, 255, 255, 0.2);
-    /* Semi-transparent circle behind icon */
     border-radius: 50%;
     display: flex;
-    /* Flex to center icon if needed or just block */
     justify-content: center;
     align-items: center;
     margin-bottom: 25px;
     transition: background-color 0.3s;
 }
 
-/* .activity-card:hover .icon {
-    background-color: #fff;
-} Removed as per user request */
 
 .activity-card .icon img {
     width: 45px;
     height: auto;
-    /* If icons are black, they might need filter on hover or be white initially. 
-       Usually these icons are white or colored. If colored, they look good on white. 
-       Let's assume they work well on color or need filter */
 }
 
 .activity-card p {
@@ -513,10 +474,8 @@ img {
 .boy-running-illustration {
     position: absolute;
     right: -180px;
-    /* Push outside container */
     top: 100px;
     z-index: 1;
-    /* Behind or beside cards, but image shows him running free */
     pointer-events: none;
     animation: run-float 3s ease-in-out infinite alternate;
 }
@@ -540,7 +499,6 @@ img {
     .boy-running-illustration {
         right: -50px;
         opacity: 0.5;
-        /* Fade him if overlapping too much or hide */
     }
 }
 
@@ -552,7 +510,6 @@ img {
 
     .boy-running-illustration {
         display: none;
-        /* Hide on smaller screens to keep content readable */
     }
 }
 
@@ -590,17 +547,13 @@ img {
     display: inline-block;
 }
 
-/* Custom shape for the main image: rounded bottom-right */
 .about-thumb .main-img {
     border-radius: 0 0 200px 0;
-    /* Adjust radius to match visual */
     max-width: 100%;
     height: auto;
     display: block;
     position: relative;
     z-index: 2;
-    /* If need to crop exactly like the image: */
-    /* object-fit: cover; */
 }
 
 /* Mock Boat/Orange Shape */
@@ -611,9 +564,7 @@ img {
     width: 100px;
     height: 100px;
     background-color: #ff922e;
-    /* Orange from palette */
     border-radius: 0 50px 0 0;
-    /* Just a simple shape to mimic presence */
     z-index: 1;
     transform: rotate(-10deg);
 }
@@ -706,7 +657,6 @@ img {
     position: relative;
     color: #fff;
     max-width: 90%;
-    /* Leave space for circle image */
     margin-bottom: 40px;
 }
 
@@ -751,7 +701,6 @@ img {
     color: #666;
     margin-bottom: 40px;
     margin-top: 50px;
-    /* Space if overlapping child is big */
 }
 
 /* Button override for blue */
@@ -864,7 +813,6 @@ img {
     transition: transform 0.3s ease;
     text-align: center;
     padding-bottom: 0;
-    /* Remove padding as we use flex content for spacing */
     display: flex;
     flex-direction: column;
 }
@@ -881,12 +829,10 @@ img {
 .program-card .thumb img {
     width: 100%;
     height: 250px;
-    /* Fixed height for consistency */
     object-fit: cover;
     display: block;
 }
 
-/* White Wave Overlay at bottom of thumb */
 .program-card .wave-overlay {
     position: absolute;
     bottom: -1px;
@@ -894,23 +840,11 @@ img {
     width: 100%;
     height: 30px;
     background-color: #fff;
-    /* Use mask-image for wave or just a simple curve/cutout */
-    /* Let's try a simple SVG mask approach or border-radius trick */
-    /* Simulating a wave with radial-gradient for a scalloped edge */
     background: radial-gradient(circle at 10px 0, transparent 10px, #fff 10px);
     background-size: 20px 20px;
     height: 15px;
-    /* height of the "scallops" */
     transform: rotate(180deg);
 }
-
-/* Re-thinking wave: The user provided wave images before (shape/64.png). 
-   Let's check if we can reuse that or if the design asks for a specific "cloud" look.
-   The reference is "cloudy" bottom. 
-   I will use a pseudo element with mask-image of a wave if possible, or just the scallops.
-   The scalloped edge above (radial-gradient) creates a "bite" effect. 
-   To create "humps" (clouds), apply it differently.
-*/
 
 .program-card .wave-overlay {
     background: transparent;
@@ -921,47 +855,26 @@ img {
     background-repeat: repeat-x;
     bottom: 0px;
     transform: none;
-    /* This creates little humps at the bottom. But we need white below it covering the image? No, we need white humps ON TOP of the image bottom. */
-    /* So background-color: transparent, humps are white. */
     z-index: 2;
 }
 
-/* Actually, a better cloud divider is complex in pure CSS without an image. 
-   I'll assume the white background content area connects to it.
-   Let's create a white block that has a scalloped TOP edge.
-*/
 .program-card .wave-overlay {
     bottom: 0;
     height: 20px;
     width: 100%;
     background: #fff;
-    /* Filler below peaks */
     display: none;
-    /* Let's skip CSS hack and just push content up or use an image if validthemes usually provides one. */
 }
 
-/* Actually, let's use the provided shape/64.png top/bottom from the previous card, 
-   but this time only one at the bottom of the image. 
-   Wait, shape/64.png was a zig-zag. The reference is "cloudy".
-   I will stick to a clean straight cut or simple border radius for now to ensure robustness, 
-   or try to use the 'shape/72.png' etc as provided but those are badges.
-   
-   Wait, I'll attempt a simple CSS cloud bottom for the image.
-*/
 .program-card .thumb::after {
     content: "";
     position: absolute;
     bottom: -1px;
-    /* Align deeply to avoid subpixel lines */
     left: 0;
     width: 100%;
-    /* Stretch full width */
     height: 15px;
-    /* Height of the wave image */
     background-image: url('https://validthemes.net/site-template/learna/assets/img/shape/69.png');
     background-size: cover;
-    /* Cover or contain depending on if it tiles. Usually this shape should stretch or repeat-x. */
-    /* Given the image seems to be a repeating pattern or a long strip, let's try background-size: 100% 100% first or repeat-x */
     background-size: 100% 100%;
     background-repeat: no-repeat;
     z-index: 2;
@@ -990,7 +903,6 @@ img {
 /* Content */
 .program-card .content {
     padding: 30px 20px 30px 20px;
-    /* Top Right Bottom Left */
     position: relative;
     flex: 1;
     /* Grow to fill space */
@@ -1018,7 +930,6 @@ img {
     background-position: center;
     color: #fff;
     margin-bottom: 20px;
-    /* Fix for pngs being small: ensure min width/height */
     min-width: 120px;
 }
 
@@ -1042,7 +953,6 @@ img {
     text-decoration: none;
     transition: transform 0.3s, background-color 0.3s;
     font-size: 1.2rem;
-    /* Push to bottom of flex container */
 }
 
 .btn-circle-arrow:hover {
@@ -1076,7 +986,6 @@ img {
 @media (max-width: 991px) {
     .kite-boy-float {
         display: none;
-        /* Hide on small screens to prevent overlap text */
     }
 }
 
@@ -1084,7 +993,7 @@ img {
 .session-area {
     padding: 120px 0;
     text-align: center;
-    background: linear-gradient(0deg, #fff 0%, #eefbff 100%);
+    background: linear-gradient(180deg, #eefbff 0%, #fff 50%, #eefbff 100%);
 }
 
 .session-board-wrapper {
@@ -1095,14 +1004,12 @@ img {
 .session-board {
     width: 100%;
     max-width: 900px;
-    /* Adjust based on image aspect ratio usually */
     min-height: 600px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     /* Stretch frame to fit content */
     background-position: center;
     padding: 180px 80px 80px 80px;
-    /* Increased top padding to push content below the clip */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1125,7 +1032,6 @@ img {
     margin-bottom: 25px;
     display: inline-block;
     background-color: #fff;
-    /* Ensure label has white bg if overlapping something */
 }
 
 .session-content h2 {
@@ -1162,12 +1068,10 @@ img {
 
 .schedule-col.name {
     flex: 0 0 40%;
-    /* 40% width */
 }
 
 .schedule-col.time {
     flex: 0 0 60%;
-    /* 60% width */
 }
 
 /* Responsive */
@@ -1175,8 +1079,6 @@ img {
     .session-board {
         padding: 60px 30px;
         background-image: none !important;
-        /* Remove complex frame on mobile if it breaks layout, or adjust */
-        /* Actually, usually better to keep it or use CSS border fallback */
         border: 2px dashed #33bfff;
         border-radius: 20px;
     }
@@ -1190,5 +1092,130 @@ img {
     .schedule-col.time {
         width: 100%;
         flex: 0 0 100%;
+    }
+}
+
+/* Advisor Area */
+.advisor-area {
+    padding: 120px 0;
+    background: linear-gradient(180deg, #eefbff 0%, #fff 100%);
+}
+
+/* Wrapper for grid spacing */
+.advisor-card-wrapper {
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+/* Card Style */
+.advisor-card {
+    background-color: #fff;
+    border: 1px solid #33bfff;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.advisor-card:hover {
+    transform: translateY(-5px);
+}
+
+.advisor-content {
+    padding: 40px 20px 60px 20px;
+    background-color: #fff;
+    position: relative;
+    z-index: 5;
+}
+
+.advisor-content h4 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.advisor-content span {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-links a {
+    width: 35px;
+    height: 35px;
+    background-color: #33bfff;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.social-links a:hover {
+    background-color: #1a237e;
+}
+
+/* The Wave Separator */
+.advisor-wave {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+
+    background-image: url('https://validthemes.net/site-template/learna/assets/img/shape/76.png');
+    background-size: 100% 100%;
+    z-index: 10;
+    height: 50px;
+}
+
+.advisor-thumb {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    margin-top: -10px;
+    background-color: #f9f9f9;
+}
+
+.advisor-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0 0 20px 20px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .advisor-card-wrapper {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .advisor-card-wrapper {
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 }
