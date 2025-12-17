@@ -825,3 +825,260 @@ img {
         font-size: 2.2rem;
     }
 }
+
+/* Programs Area */
+.programs-area {
+    padding: 120px 0;
+    background-color: #eefbff;
+    /* Light bluish background similar to reference */
+    position: relative;
+    z-index: 1;
+    /* Ensure higher context for kite boy relative to other sections if overlapping */
+    /* Add bottom cloud background later if needed, but simple color works for now */
+    background: linear-gradient(180deg, #fff 0%, #eefbff 100%);
+}
+
+.kite-boy-float {
+    position: absolute;
+    left: 2%;
+    top: 50px;
+    z-index: 5;
+    animation: sway 5s ease-in-out infinite alternate;
+    max-width: 250px;
+}
+
+@keyframes sway {
+    0% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(5deg);
+    }
+}
+
+/* Card General */
+.program-card {
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid transparent;
+    transition: transform 0.3s ease;
+    text-align: center;
+    padding-bottom: 0;
+    /* Remove padding as we use flex content for spacing */
+    display: flex;
+    flex-direction: column;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+}
+
+.program-card .thumb {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.program-card .thumb img {
+    width: 100%;
+    height: 250px;
+    /* Fixed height for consistency */
+    object-fit: cover;
+    display: block;
+}
+
+/* White Wave Overlay at bottom of thumb */
+.program-card .wave-overlay {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #fff;
+    /* Use mask-image for wave or just a simple curve/cutout */
+    /* Let's try a simple SVG mask approach or border-radius trick */
+    /* Simulating a wave with radial-gradient for a scalloped edge */
+    background: radial-gradient(circle at 10px 0, transparent 10px, #fff 10px);
+    background-size: 20px 20px;
+    height: 15px;
+    /* height of the "scallops" */
+    transform: rotate(180deg);
+}
+
+/* Re-thinking wave: The user provided wave images before (shape/64.png). 
+   Let's check if we can reuse that or if the design asks for a specific "cloud" look.
+   The reference is "cloudy" bottom. 
+   I will use a pseudo element with mask-image of a wave if possible, or just the scallops.
+   The scalloped edge above (radial-gradient) creates a "bite" effect. 
+   To create "humps" (clouds), apply it differently.
+*/
+
+.program-card .wave-overlay {
+    background: transparent;
+    height: 20px;
+    background-image:
+        radial-gradient(circle at 50% 100%, #fff 10px, transparent 11px);
+    background-size: 24px 20px;
+    background-repeat: repeat-x;
+    bottom: 0px;
+    transform: none;
+    /* This creates little humps at the bottom. But we need white below it covering the image? No, we need white humps ON TOP of the image bottom. */
+    /* So background-color: transparent, humps are white. */
+    z-index: 2;
+}
+
+/* Actually, a better cloud divider is complex in pure CSS without an image. 
+   I'll assume the white background content area connects to it.
+   Let's create a white block that has a scalloped TOP edge.
+*/
+.program-card .wave-overlay {
+    bottom: 0;
+    height: 20px;
+    width: 100%;
+    background: #fff;
+    /* Filler below peaks */
+    display: none;
+    /* Let's skip CSS hack and just push content up or use an image if validthemes usually provides one. */
+}
+
+/* Actually, let's use the provided shape/64.png top/bottom from the previous card, 
+   but this time only one at the bottom of the image. 
+   Wait, shape/64.png was a zig-zag. The reference is "cloudy".
+   I will stick to a clean straight cut or simple border radius for now to ensure robustness, 
+   or try to use the 'shape/72.png' etc as provided but those are badges.
+   
+   Wait, I'll attempt a simple CSS cloud bottom for the image.
+*/
+.program-card .thumb::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    /* Align deeply to avoid subpixel lines */
+    left: 0;
+    width: 100%;
+    /* Stretch full width */
+    height: 15px;
+    /* Height of the wave image */
+    background-image: url('https://validthemes.net/site-template/learna/assets/img/shape/69.png');
+    background-size: cover;
+    /* Cover or contain depending on if it tiles. Usually this shape should stretch or repeat-x. */
+    /* Given the image seems to be a repeating pattern or a long strip, let's try background-size: 100% 100% first or repeat-x */
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+
+
+/* Colors Borders */
+.card-blue {
+    border-color: #307ad5;
+}
+
+.card-pink {
+    border-color: #d94da6;
+    margin-top: 80px;
+}
+
+.card-cyan {
+    border-color: #33bfff;
+}
+
+.card-orange {
+    border-color: #ff922e;
+        margin-top: 80px;
+}
+
+/* Content */
+.program-card .content {
+    padding: 30px 20px 30px 20px;
+    /* Top Right Bottom Left */
+    position: relative;
+    flex: 1;
+    /* Grow to fill space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.program-card h4 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+/* Badge */
+.age-badge {
+    display: inline-block;
+    padding: 8px 25px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* Stretch baground image */
+    background-position: center;
+    color: #fff;
+    margin-bottom: 20px;
+    /* Fix for pngs being small: ensure min width/height */
+    min-width: 120px;
+}
+
+.program-card p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Arrow Btn */
+.btn-circle-arrow {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s, background-color 0.3s;
+    font-size: 1.2rem;
+    /* Push to bottom of flex container */
+}
+
+.btn-circle-arrow:hover {
+    transform: rotate(45deg);
+}
+
+.card-blue .btn-circle-arrow {
+    background-color: #307ad5;
+}
+
+.card-pink .btn-circle-arrow {
+    background-color: #d94da6;
+}
+
+.card-cyan .btn-circle-arrow {
+    background-color: #33bfff;
+}
+
+.card-orange .btn-circle-arrow {
+    background-color: #ff922e;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .kite-boy-float {
+        left: -50px;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 991px) {
+    .kite-boy-float {
+        display: none;
+        /* Hide on small screens to prevent overlap text */
+    }
+}
