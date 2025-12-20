@@ -17,12 +17,134 @@ img {
     height: auto;
 }
 
+/* Header & Navbar */
+.site-header {
+    width: 100%;
+    z-index: 1000;
+    padding: 16px 0;
+    transition: all 0.3s ease;
+}
+
+/* Sticky State */
+.site-header.sticky {
+    position: fixed;
+    background-color: #ffffff;
+    /* Keep blue for logo visibility */
+    padding: 15px 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    top: 0;
+    animation: slideDown 0.35s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand img {
+    max-width: 160px;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+    margin-right: 40px;
+    align-items: center;
+}
+
+.navbar-nav li {
+    margin: 0 15px;
+}
+
+.navbar-nav li a {
+    color: #272727;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    font-family: 'Nunito', sans-serif;
+}
+
+.navbar-nav li a:hover {
+    color: #ffe824;
+    /* Yellow highlight from banner */
+}
+
+/* Header Button adjustment */
+.site-header .btn-apply {
+    padding: 12px 30px;
+    font-size: 1rem;
+    background-color: #ffe824;
+    color: #333;
+    border: none;
+}
+
+.site-header .btn-apply:hover {
+    background-color: #33bfff;
+    color: #ffffff;
+}
+
+.site-header .btn-apply .icon-arrow {
+    width: 25px;
+    height: 25px;
+    font-size: 0.9rem;
+    margin-left: 10px;
+    color: #333;
+}
+
+/* Responsive Header */
+@media (max-width: 991px) {
+    .navbar-nav {
+        display: none;
+    }
+
+    .site-header {
+        position: relative;
+        background-color: #33bfff;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+    }
+
+    .navbar-brand {
+        margin-right: 0;
+    }
+
+    .header-btn {
+        display: none;
+        /* Hide button on small screens to save space if needed, or keep it. */
+    }
+}
+
 /* Banner Area */
 .banner-area {
     background-color: #33bfff;
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     padding: 100px 0;

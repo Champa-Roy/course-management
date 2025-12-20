@@ -14,6 +14,30 @@
 
 <body>
 
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="navbar-brand">
+                    <img src="https://validthemes.net/site-template/learna/assets/img/logo-3.png" alt="Learna Logo">
+                </a>
+                <ul class="navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li><a href="#">Classes</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="header-btn">
+                    <a href="#" class="btn-apply">
+                        Get Scarted
+                        <span class="icon-arrow">↗</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
     <div class="banner-area">
         <!-- Top Info Shape -->
         <div class="shape-top">
@@ -544,6 +568,17 @@
             </div>
         </div>
     </div>
+    <!-- Sticky Header Script -->
+    <script>
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 50) {
+                header.classList.add('sticky');
+            } else {
+                header.classList.remove('sticky');
+            }
+        });
+    </script>
 </body>
 
 </html>
