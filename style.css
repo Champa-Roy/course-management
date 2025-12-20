@@ -1219,3 +1219,167 @@ img {
         max-width: 100%;
     }
 }
+
+/* ===========================
+   Blog Area Styles
+   =========================== */
+.blog-area {
+    padding: 120px 0;
+    background-color: #eefbff;
+    /* Light cyan background from image/site */
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-area .activities-header {
+    margin-bottom: 50px;
+}
+
+.blog-card-wrapper {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.blog-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: visible;
+    /* Needed for the tag to overlap if we used negative margins, but we'll use z-index and overflow hidden on thumb only */
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.blog-card .thumb {
+    position: relative;
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+    height: 240px;
+}
+
+.blog-card .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .thumb img {
+    transform: scale(1.1);
+}
+
+.blog-card .tag {
+    position: absolute;
+    top: 222px;
+    /* 240px thumb height - ~18px overlap */
+    left: 30px;
+    color: #fff;
+    padding: 8px 25px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    z-index: 20;
+    /* Ensure it stays on top */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix for overflow hidden on card causing tag to verify cut off if we used overflow hidden on card.
+   So we applied overflow hidden on thumb only. */
+
+.blog-card .content {
+    padding: 40px 30px 35px 30px;
+    background-color: #fff;
+    border-radius: 0 0 15px 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.blog-card h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    color: #0a0a0a;
+}
+
+.blog-card p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    flex-grow: 1;
+    /* Pushes meta/footer down */
+}
+
+.blog-card .meta {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #888;
+    font-weight: 600;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+    width: 100%;
+}
+
+.blog-card .meta span {
+    margin-right: 5px;
+}
+
+.blog-card .btn-float {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover .btn-float {
+    transform: rotate(-45deg);
+}
+
+
+/* Responsive Blog */
+@media (max-width: 991px) {
+    .blog-card-wrapper {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-card-wrapper {
+        flex: 0 0 100%;
+        /* Stacks nicely on mobile */
+        max-width: 100%;
+    }
+
+    .blog-area {
+        padding: 80px 0;
+    }
+}
